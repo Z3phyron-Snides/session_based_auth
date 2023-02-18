@@ -2,12 +2,7 @@ import { Card, Container, Form, FormCtrl, User } from "./styles";
 import { Avatar, Input } from "@nextui-org/react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  getUser,
-  loadUser,
-  reset,
-  signIn,
-} from "../../features/auth/AuthSlice";
+import { getUser, reset, signIn } from "../../features/auth/AuthSlice";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import useAxiosPrivate from "../../hook/useAxiosPrivate";
@@ -18,7 +13,7 @@ const Index = () => {
     email: "",
     password: "",
   });
-  const { email, password } = formData;
+  const { email } = formData;
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,13 +25,10 @@ const Index = () => {
   };
 
   useEffect(() => {
-    if (isSuccess && token) {
+    if (token) {
       // toast.success(message);
       navigate("/");
       dispatch(reset());
-      setTimeout(() => {
-        dispatch(loadUser(axiosPrivate));
-      }, 2000);
     }
     if (email) {
       const getData = setTimeout(() => {

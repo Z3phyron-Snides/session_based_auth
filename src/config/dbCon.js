@@ -8,7 +8,7 @@ const connectDB = async () => {
   };
   try {
     const conn = await mongoose.connect(
-      "mongodb://localhost:27017/session",
+      "mongodb+srv://prisma:prisma@cluster0.gpzf8gz.mongodb.net/?retryWrites=true&w=majority",
       connectionParams
     );
     console.log(`MongoDB Connected: ${conn.connection.host}`);

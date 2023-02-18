@@ -1,6 +1,6 @@
 const allowedOrigins = [
   "http://localhost:3000",
-  "https://session-xjpx.onrender.com",
+  "https://session-based-auth.vercel.app",
 ];
 
 module.exports = allowedOrigins
